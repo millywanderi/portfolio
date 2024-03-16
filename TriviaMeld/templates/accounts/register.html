@@ -8,7 +8,7 @@
             <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div class="card-body p-5">
                         <h2 class="text-uppercase text-center">Create an account</h2>
-                        <form method="POST" action="{% url 'register' %}">
+                        <form method="POST" action="{% url 'register' %}" autocomplete="off">
                             {% csrf_token %}
                             <div>
                                 {% for message in messages %}
@@ -44,7 +44,8 @@
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                             </div> 
-                            
+                            <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'login' %}"
+                                class="fw-bold text-body"><u>Login here</u></a></p> 
                         </form>
                     </div>           
             </div>
