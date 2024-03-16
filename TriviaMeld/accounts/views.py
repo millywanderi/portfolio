@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
 
@@ -25,8 +25,28 @@ def register(request):
                 user = User.objects.create_user(first_name=first_name, last_name=last_name,
                                                 username=username, password=password1)
                 user.save()
-                return redirect("register")  #  redirect to login once login url is created
+                return redirect("login")
         else: 
             messages.error(request, f'password not matching')
             return redirect('register')
     return render(request, 'accounts/register.html')
+
+def login(request):
+    """Login the user after registration"""
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('register') # Change to trivia homepage once created
+        else:
+            messages.error(request, f'Invalid username or password')
+            return redirect('login')
+    return render(request, 'accounts/login.html')
+
+def logout(request):
+    """Logout the user"""
+    auth.logout(request)
+    return redirect('login')
