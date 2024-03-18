@@ -2,3 +2,5 @@
 TriviaMeld/__pycache__/
 accounts/__pycache__/
 accounts/migrations/__pycache__/
+homepage/ __pycache__/
+homepage/migrations/__pycache__/
