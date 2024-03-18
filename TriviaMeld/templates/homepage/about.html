@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>About - TriviaMeld</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="{% url 'home' %}">TriviaMeld</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="active" href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a class="getstarted" href="{% url 'about' %}">Get Started</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= About ======= -->
+    <section id="about" class="about ml-4">
+     <div class="container row">
+        <div class="col-mod-2"></div>
+        <div class="col-md-12">
+          <div class="section-title">
+            <br>
+            <h2><strong>About Us</strong></h2>
+            <h4><p><i>Welcome to TriviaMeld!</i></p></h4>
+          </div>
+
+          <div class="row content">
+            <div class="col-lg-12">
+              <h4><p>At TriviaMeld, we are passionate about bringing people together through trivia. We provide a platform where users can challenge their knowledge, learn new facts, in an interactive way.</p></h4>
+              <br>
+              <h3><strong>Our Mission</strong></h3>
+              <h4><p>Our mission is to make trivia accessible and anjoyable for everyone. We believe that learning can be both educational and entertaining, and our goal is to create an environment where users can expand their knowledge.</p></h4>
+              <br>
+              <h3><strong>Our Values</strong></h3>
+              <h4><p>
+                <li><strong>Quality:</strong> We are committed to providing the highest quality trivia challenges.</li>
+                <li><strong>Customer Satisfaction:</strong> Our customers are at the heart of everything we do. We strive to exceed their expectations.</li>
+                <li><strong>Innovation:</strong> We continous seek new ways to improve and innovate our services.</li>
+                <li><strong>Integrity:</strong> We conduct business with honesty, integrity, and transparency.</li>
+              </p></h4>
+              <br>
+              <h3><strong>Why Choose Us</strong></h3>
+              <h4><p>
+                <li><strong>Experience:</strong> With over one year of experience, we have the knowledge an expertise to meet your needs.</li>
+                <li><strong>Quality Assurance: </strong>We adhere to strict standards to ensure the reliability and durability of our services.</li>
+                <li><strong>Customer Support: </strong>Our friendly and knowledgeable customer support team is here to assist you every step of the way.</li>
+              </p></h3>
+            </div>
+          </div>
+        </div>
+     </div>
+    </section>
+
+    <style>
+      /* CSS for the contact */ 
+      .about {
+        margin-left: 50px;
+      }
+    </style>
+
+    <!-- ======= About Section ======= -->
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>TriviaMeld</h3>
+            <p>Test your knowledge and quiz skills while having fun.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'about' %}">About us</a></li>
+              <li><a href="{% url 'contact' %}">Contact us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              Tom Mboya Street 
+              123 Main Street Nairobi 
+              Kenya 
+              <strong>Phone:</strong> +254713196499
+              <strong>Email:</strong> milliwanderi5@gmail.com
+            </p>
+
+            <div class="social-links">
+              <a class="twiter-link" href="https://twitter.com/Millywanderi5"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.facebook.com/millicent.wanderi/" class="facebook-link"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/virtualadjutant/" class="instagram-link"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/millicent-wanderi-9aa894206/" class="linkedin-link"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Kindly subscribe to get our weekly emails.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>TriviaMeld</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a class="twiter-link" href="https://twitter.com/Millywanderi5">Millicent Wanderi</a>
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
+
+  
+
+</body>
+
+</html>
