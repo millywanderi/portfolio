@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ quiz.title }}</title>
+    </head>
+    <body>
+        <h1>{{ quiz.title }}</h1>
+        <p>{{ quiz.description }}</p>
+
+        <!-- Display questions and options -->
+        <ul>
+            {% for question in quiz.question_set.all %}
+            <li>
+                <h3>{{ question.text }}</h3>
+                <ul>
+                    {% for option in question.option_set.all %}
+                    <li>{{ option.text }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

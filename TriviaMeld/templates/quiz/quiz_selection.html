@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Quiz Selection</title>
+    </head>
+    <body>
+        <h1>Choose a Quiz</h1>
+
+        <!-- Multiple Quizzes -->
+        <div class="quiz-container">
+            <h2 class="quiz-title">Quiz 1</h2>
+            <p class="quiz-description">This is the description of Quiz 1</p>
+            <button class="start-quiz-btn">Start Quiz</button>
+        </div>
+        <div class="quiz-container">
+            <h2 class="quiz-title">Quiz 2</h2>
+            <p class="quiz-description">This is the description of Quiz 2</p>
+            <button class="start-quiz-btn">Start Quiz</button>
+        </div>
+        <div class="quiz-container">
+            <h2 class="quiz-title">Quiz 3</h2>
+            <p class="quiz-description">This is the description of Quiz 3</p>
+            <button class="start-quiz-btn">Start Quiz</button>
+        </div>
+        <div class="quiz-container">
+            <h2 class="quiz-title">Quiz 4</h2>
+            <p class="quiz-description">This is the description of Quiz 4</p>
+            <button class="start-quiz-btn">Start Quiz</button>
+        </div>
+        <ul>
+            {% for quiz in quizzes %}
+            <li><a href="{% url 'quiz_detail' quiz.id %}">{{ quiz.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
+
+<style>
+    .quiz-container {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    .quiz-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .quiz-description {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .start-quiz-btn {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer
+    }
+</style>
