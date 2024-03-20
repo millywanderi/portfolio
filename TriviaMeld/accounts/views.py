@@ -40,7 +40,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('register') # Change to trivia homepage once created
+            return redirect('quiz_selection') # Change to trivia homepage once created
         else:
             messages.error(request, f'Invalid username or password')
             return redirect('login')
