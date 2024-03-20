@@ -9,26 +9,59 @@
         <h1>Choose a Quiz</h1>
 
         <!-- Multiple Quizzes -->
-        <div class="quiz-container">
-            <h2 class="quiz-title">Quiz 1</h2>
-            <p class="quiz-description">This is the description of Quiz 1</p>
-            <button class="start-quiz-btn">Start Quiz</button>
+        <div class="quiz-column">
+            <div class="quiz-container">
+                <h2 class="quiz-title">Quiz 1</h2>
+                <p class="quiz-description">Test for simple Math calculation.</p>
+                <button class="start-quiz-btn">Start Quiz</button>
+            </div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Quiz 2</h2>
+                <p class="quiz-description">Test for moderate Math calculation.</p>
+                <button class="start-quiz-btn">Start Quiz</button>
+            </div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Quiz 3</h2>
+                <p class="quiz-description">Test for advanced Math calculation.</p>
+                <button class="start-quiz-btn">Start Quiz</button>
+            </div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Quiz 4</h2>
+                <p class="quiz-description">Test for simple English Language.</p>
+                <button class="start-quiz-btn">Start Quiz</button>
+            </div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Quiz 5</h2>
+                <p class="quiz-description">Test for moderate English Language.</p>
+                <button class="start-quiz-btn">Start Quiz</button>
+            </div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Quiz 6</h2>
+                <p class="quiz-description">Test for advanced English Language.</p>
+                <button class="start-quiz-btn">Start Quiz</button>
+            </div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Quiz 7</h2>
+                <p class="quiz-description">Test your general knowledge.</p>
+                <button class="start-quiz-btn">Start Quiz</button>
+            </div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Quiz 8</h2>
+                <p class="quiz-description">How much do you know about Tech?</p>
+                <button class="start-quiz-btn">Start Quiz</button>
+            </div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Quiz 9</h2>
+                <p class="quiz-description">This is the description of Quiz 9</p>
+                <button class="start-quiz-btn">Start Quiz</button>
+            </div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Quiz 10</h2>
+                <p class="quiz-description">This is the description of Quiz 10</p>
+                <button class="start-quiz-btn">Start Quiz</button>
+            </div>
         </div>
-        <div class="quiz-container">
-            <h2 class="quiz-title">Quiz 2</h2>
-            <p class="quiz-description">This is the description of Quiz 2</p>
-            <button class="start-quiz-btn">Start Quiz</button>
-        </div>
-        <div class="quiz-container">
-            <h2 class="quiz-title">Quiz 3</h2>
-            <p class="quiz-description">This is the description of Quiz 3</p>
-            <button class="start-quiz-btn">Start Quiz</button>
-        </div>
-        <div class="quiz-container">
-            <h2 class="quiz-title">Quiz 4</h2>
-            <p class="quiz-description">This is the description of Quiz 4</p>
-            <button class="start-quiz-btn">Start Quiz</button>
-        </div>
+
         <ul>
             {% for quiz in quizzes %}
             <li><a href="{% url 'quiz_detail' quiz.id %}">{{ quiz.title }}</a></li>
@@ -44,6 +77,11 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         background-color: #f9f9f9;
+    }
+    .quiz-column {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
     .quiz-title {
         font-size: 24px;
