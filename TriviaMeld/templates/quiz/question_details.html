@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question Detail</title>
+    </head>
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            <h1>{{ question.text }}</h1>
+            <ul class="options">
+                {% for option in options %}
+                    <li>
+                        <input type="radio" id="option{{ option.id }}" name="selected_option" value="{{ option.id }}">
+                        <label for="option{{ option.id }}"> {{ option.text }}</label>
+                    </li>
+                {% endfor %}
+            </ul>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 10px;
+    }
+    input[type="radio"] {
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+    label {
+        cursor: pointer;
+        display: inline-block;
+        padding-left: 30px;
+        position: relative;
+        line-height: 1.5;
+    }
+    label:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        border: 2px solid #007bff;
+        background-color: #fff;
+    }
+    input[type="radio"]:checked + label:before {
+        content: "•";
+        color: #28a745;
+    }
+    button[type="submit"] {
+        background-color: #007bff;
+        
+    }
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
