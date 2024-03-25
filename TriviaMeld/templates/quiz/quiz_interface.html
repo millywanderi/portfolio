@@ -3,103 +3,77 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ quiz.title }}</title>
+        <title>{{ selected_quiz.title }}</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     </head>
     <body>
-        <div class="container">
-            <h1>{{ quiz.title }}</h1>
-            <div id="question-container">
-                <h3 id="question">Question 1: </h3>
-                <p>What is the addition of 13 + 12?</p>
-                <ul id="options">
-                    <li><label><input type="radio" name="option" value="A"> 15</label></li>
-                    <li><label><input type="radio" name="option" value="B"> 25</label></li>
-                    <li><label><input type="radio" name="option" value="C"> 1</label></li>
-                    <li><label><input type="radio" name="option" value="D"> 10</label></li>
-                </ul>
-                <h3 id="question">Question 2: </h3>
-                <p>What is the multiplication of 10 * 10?</p>
-                <ul id="options">
-                    <li><label><input type="radio" name="option" value="A"> 10</label></li>
-                    <li><label><input type="radio" name="option" value="B"> 0</label></li>
-                    <li><label><input type="radio" name="option" value="C"> 100</label></li>
-                    <li><label><input type="radio" name="option" value="D"> -10</label></li>
-                </ul>
-                <h3 id="question">Question 3: </h3>
-                <p>What is the division of 50 / 10?</p>
-                <ul id="options">
-                    <li><label><input type="radio" name="option" value="A"> 10</label></li>
-                    <li><label><input type="radio" name="option" value="B"> 0</label></li>
-                    <li><label><input type="radio" name="option" value="C"> 1</label></li>
-                    <li><label><input type="radio" name="option" value="D"> -10</label></li>
-                </ul>
+       <h1>{{ quiz.title }}</h1> 
+
+       <div class="quiz-container">
+            <h2></h2>
+            <div class="question-container">
+                <form method="POST" action="{% url 'submit_answer' quiz.id %}">
+                    {% csrf_token %}
+                    {% for question in questions %}
+                    <div class="question">
+                        <h3>{{ question.text }}</h3>
+                        <div>
+                            {% for choice in question.question_choices %}
+                            <li class="checkbox">
+                                <input type="checkbox" id="option{{ choice.text }}" name="{{ question.question_name }}" value="{{ choice.text }}">
+                                <label for="option{{ choice.text }}"> {{ choice.text }}</label>
+                            </li>
+                            {% endfor %}
+                        </div>
+                    </div>
+                
+                {% empty %}
+                    <p>No questions available for this quiz.</p>
+                {% endfor %}
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+                </form>
             </div>
-            <div id="timer-container">
-                <p id="timer">Time Remaining: <span id="timer-left">00:00</span>
-            </div>
-            <div id="button-container">
-                <button class="btn btn-success" id="submit-button">Submit Answer</button>
-            </div>
-        </div>
+            
+       </div>
+      
     </body>
-</html> 
+</html>
 
 <style>
-    body {
-        background-color: #f8f9fa;
-        font-family: Arial, Sans-serif;
-    }
-
-    .container {
-        margin-top: 50px;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
     h1 {
         text-align: center;
         color: #007bff;
     }
-    #question-container {
+    .quiz-container {
+        margin-bottom: 30px;
+        margin-left: 350px;
+    }
+    .question {
         margin-bottom: 20px;
     }
-    #options {
+    .options {
         list-style-type: none;
-        padding-left: 0;
+        padding: 0;
     }
-    #options li {
+    .options li {
         margin-bottom: 10px;
     }
-    #timer-container {
-        text-align: center;
-        margin-bottom: 20px;
+    .checkbox {
+        list-style: none;
     }
-    #button-container {
-        text-align: center;
+    button[type="submit"] {
+        background-color: green;
+        color: white;
+        paddding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
-    #prev-button,
-    #next-button,
-    #submit-button {
-        margin-right: 10px;
+    button[type="submit"]:hover {
+        background-color: darkgreen;
     }
 </style>
-
-<script>
-    const timerElement = document.getElementById('time-left');
-    let timeLeft = 10;
-
-    function updateTimer() {
-        timerElement.textContent = timeLeft;
-        timeLeft--;
-
-        if (timeLeft < 0) {
-            clearInterval(timerInterval);
-        }
-    }
-    const timerInterval = setInterval(updateTimer, 1000);
-</script>
