@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,6 +13,7 @@
         <div class="quiz-column">
             {% for quiz in quizzes %}
             <div class="quiz-container">
+                <img class="quiz-image" src="{% static 'assets/img/maths.PNG' %}">
                 <!-- Display quiz title and description -->
                 <h2 class="quiz-title">{{ quiz.title }}</h2>
                 <p class="quiz-description">{{ quiz.description }}</p>
@@ -56,5 +58,10 @@
         border: none;
         border-radius: 5px;
         cursor: pointer
+    }
+    .quiz-image {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
     }
 </style>
