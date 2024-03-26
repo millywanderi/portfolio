@@ -1,1 +1,17 @@
-<h1>{{ total_score }}</h1>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feedback and Scoring</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    </head>
+    <body>
+        <h1>Feedback and Scoring</h1>
+        <h2>{{ quiz.title }}</h2>
+        <h3>Total Score: {{ total_score }}</h3>
+        <a href="{% url 'quiz_selection' %}">Back to Quiz List</a>
+    </body>
+</html>
