@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ selected_quiz.title }}</title>
+        <title>{{ quiz.title }}</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -37,9 +37,31 @@
                 </div>
                 </form>
             </div>
-            
+            <div id="timer">Time Remaining: <span id="countdown">10</span> seconds</div>  
        </div>
-      
+       
+       <script>
+            // Timer function
+            function startTimer(duration, display) {
+                let timer = duration;
+                const timerInterval = setInterval(function () {
+                    display.textContent = timer;
+                    if (--timer < 0) {
+                        clearInterval(timerInterval);
+                        // Submit form if the time is upper
+                       
+                        window.location.href = "{% url 'quiz_selection' %}";
+                    }
+                }, 1000);
+            }
+
+            // Enable the timer to start immediately the page is loaded
+            window.onload = function () {
+                const countdownDisplay = document.getElementById("countdown");
+                const timeInSeconds = 10;
+                startTimer(timeInSeconds, countdownDisplay);
+            };
+       </script>
     </body>
 </html>
 
