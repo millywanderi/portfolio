@@ -19,11 +19,11 @@ def quiz_interface(request, quiz_id):
     }
     return render(request, 'quiz/quiz_interface.html', context)
 
+
 def submit_answer(request, quiz_id):
     """Submitting the answer"""
     quiz = Quiz.objects.get(id=quiz_id)
     if request.method == 'POST':
-        print(request.method)
         question1_answer = request.POST['Question 1']
         question2_answer = request.POST['Question 2']
         question3_answer = request.POST['Question 3']
