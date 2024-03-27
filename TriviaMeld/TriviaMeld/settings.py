@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'accounts',
     'homepage',
     'quiz',
+    'api',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
